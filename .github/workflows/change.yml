@@ -12,7 +12,7 @@ jobs:
         run: |
           echo "${{secrets.EC2_PRIVATE_KEY}}" > ~/ssh_key
           chmod 700 ~/ssh_key 
-          ssh -o StrictHostKeychecking=no -i ~/ssh_key ubuntu@65.0.6.139 "cd gh-ci-cd && git pull origin main && npm install && npm run dev" 
+          ssh -o StrictHostKeychecking=no -i ~/ssh_key ubuntu@65.0.6.139 "pm2 stop next && cd gh-ci-cd && git pull origin main && npm install && pm2 --name next start npm -- run dev" 
           
       # - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       # - run: echo "🖥️ The workflow is now ready to test your code on the runner."
