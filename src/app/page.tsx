@@ -29,7 +29,7 @@ export default function Home() {
           placeholder="Add a new todo"
           className="border p-2 mr-2"
         />
-        <button type="submit" className="bg-blue-500 text-white p-2 rounded">Add</button>
+        <button type="submit" className="bg-blue-500 text-white p-2 rounded">Add New Todo</button>
       </form>
       <ul>
         {todos.map((todo, index) => (
