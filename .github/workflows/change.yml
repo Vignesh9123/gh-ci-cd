@@ -1,4 +1,4 @@
-name: ssh and ls into remote server
+name: change-code
 run-name: ${{ github.actor }} is sshing into EC2
 on: [push]
 jobs:
