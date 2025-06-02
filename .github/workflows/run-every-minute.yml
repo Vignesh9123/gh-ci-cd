@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run a one-line script
-        run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event at ${ date + '%Y-%m-%dT%H:%M:%S' }."
+        run: echo "🎉 The job was automatically triggered by a workflow_dispatch event at $(date +'%Y-%m-%dT%H:%M:%S')."
