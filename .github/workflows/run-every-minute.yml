@@ -1,9 +1,8 @@
 name: run-every-minute
-run-name: ${{action.name}} is running
+run-name: Running every minute
 on:
   schedule:
     - cron: "* * * * *"
-  workflow_dispatch:
 jobs:
   run-every-minute:
     runs-on: ubuntu-latest
