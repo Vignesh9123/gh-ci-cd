@@ -1,5 +1,5 @@
 name: ci
-
+run-name: ${{ github.actor }} is pushing the code to DockerHub
 on:
   push:
 
@@ -29,3 +29,10 @@ jobs:
           context: .
           push: true
           tags: vignesh9123/todo:${{ github.sha }}
+
+      -
+        name: SSH and Push to EC2
+        run: |
+          echo "${{secrets.EC2_PRIVATE_KEY}}" > ~/ssh_key
+          chmod 700 ~/ssh_key 
+          ssh -o StrictHostKeychecking=no -i ~/ssh_key ubuntu@13.201.21.179 "sudo docker stop nextweb && sudo docker pull vignesh9123/todo:${{ github.sha }} && docker start --name nextweb -d -p 3000:3000 vignesh9123/todo:${{ github.sha }}" 
