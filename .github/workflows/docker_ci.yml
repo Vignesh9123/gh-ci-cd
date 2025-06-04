@@ -35,4 +35,4 @@ jobs:
         run: |
           echo "${{secrets.EC2_PRIVATE_KEY}}" > ~/ssh_key
           chmod 700 ~/ssh_key 
-          ssh -o StrictHostKeychecking=no -i ~/ssh_key ubuntu@13.201.21.179 "sudo docker stop nextweb && sudo docker pull vignesh9123/todo:${{ github.sha }} && sudo docker run --name nextweb -d -p 3000:3000 vignesh9123/todo:${{ github.sha }}" 
+          ssh -o StrictHostKeychecking=no -i ~/ssh_key ubuntu@13.201.21.179 "sudo docker stop nextweb && sudo docker pull vignesh9123/todo:${{ github.sha }} && sudo docker container prune -f && sudo docker run --name nextweb -d -p 3000:3000 vignesh9123/todo:${{ github.sha }}" 
