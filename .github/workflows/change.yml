@@ -1,6 +1,6 @@
 name: change-code
 run-name: ${{ github.actor }} is sshing into EC2
-on: [push]
+# on: [push]
 jobs:
   ssh-ec2:
     runs-on: ubuntu-latest

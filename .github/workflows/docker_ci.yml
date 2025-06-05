@@ -1,7 +1,7 @@
 name: ci
 run-name: ${{ github.actor }} is pushing the code to DockerHub
-on:
-  push:
+# on:
+#   push:
 
 jobs:
   docker:

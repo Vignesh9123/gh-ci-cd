@@ -1,0 +1,15 @@
+name: copy
+run-name: Copying a sample file to remote server
+on: [push]
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH into EC2
+        run: |
+          echo "${{secrets.EC2_PRIVATE_KEY}}" > ~/ssh_key
+          chmod 700 ~/ssh_key 
+          echo "Hello World" > hello.txt
+          scp -o StrictHostKeychecking=no -i ~/ssh_key hello.txt ubuntu@43.204.236.118:/home/ubuntu
+      
+      - run: echo "This job's status is ${{ job.status }}."
