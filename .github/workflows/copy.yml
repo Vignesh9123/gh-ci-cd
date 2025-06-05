@@ -1,6 +1,7 @@
 name: copy
 run-name: Copying a sample file to remote server
-on: [push]
+on:
+  push:
 jobs:
   copy:
     runs-on: ubuntu-latest
